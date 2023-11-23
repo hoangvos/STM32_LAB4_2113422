@@ -101,12 +101,19 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
   SCH_Init();
   LedInit();
+  /// get current time
   SCH_Add_Task(get_time, 0, 1);
+  /// periodically in 0.5 second
   SCH_Add_Task(toggle_led_1, 50, 50);
+  /// periodically in 1 second
   SCH_Add_Task(toggle_led_2, 100, 100);
+  /// periodically in 1.5 second
   SCH_Add_Task(toggle_led_3, 150, 150);
+  /// periodically in 2 second
   SCH_Add_Task(toggle_led_4, 200, 200);
+  /// periodically in 2.5 second
   SCH_Add_Task(toggle_led_5, 250, 250);
+  /// one shot task
   SCH_Add_Task(toggle_led_6, 300, 0);
 
   /* USER CODE END 2 */
